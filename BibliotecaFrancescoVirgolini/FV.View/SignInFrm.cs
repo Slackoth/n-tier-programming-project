@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace FV.View
 {
-    public partial class Form1 : Form
+    public partial class SignInFrm : Form
     {
-        public Form1()
+        public SignInFrm()
         {
             InitializeComponent();
         }
 
+        private void SignInFrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
