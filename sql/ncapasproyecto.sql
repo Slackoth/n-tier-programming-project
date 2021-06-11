@@ -74,6 +74,7 @@ create table authors_books(
 create table copies(
 	copies_id int primary key identity,
 	books_id int,
+	copie_state bit,
 	
 
 
