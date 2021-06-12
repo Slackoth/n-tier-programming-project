@@ -114,3 +114,16 @@ on a.authors_id = ab.authors_id
 where s.subject_name like '%' + @value + '%'
 order by s.subject_name asc
 go;
+
+create or alter procedure list_all_teachers
+as
+select users_id, first_name, last_name, email from users where user_role = 0
+go
+
+create or alter procedure search_teachers_by_name
+@value varchar(255)
+as
+select users_id, first_name, last_name, email 
+from users where user_role = 0 and (first_name like '%' + @value + '%'
+or last_name like '%' + @value + '%')
+go

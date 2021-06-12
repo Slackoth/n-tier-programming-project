@@ -36,6 +36,7 @@ namespace FV.View
             this.tsmLoan = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReturns = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmFrancesco = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ssDeveloper = new System.Windows.Forms.StatusStrip();
             this.tsslblDevelopers = new System.Windows.Forms.ToolStripStatusLabel();
             this.msLibrary.SuspendLayout();
@@ -48,7 +49,8 @@ namespace FV.View
             this.msLibrary.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmBooks,
             this.tsmLibrary,
-            this.tsmFrancesco});
+            this.tsmFrancesco,
+            this.cerrarSesiónToolStripMenuItem});
             this.msLibrary.Location = new System.Drawing.Point(0, 0);
             this.msLibrary.Name = "msLibrary";
             this.msLibrary.Size = new System.Drawing.Size(800, 28);
@@ -83,6 +85,7 @@ namespace FV.View
             this.tsmLoan.Name = "tsmLoan";
             this.tsmLoan.Size = new System.Drawing.Size(181, 26);
             this.tsmLoan.Text = "Préstamos";
+            this.tsmLoan.Click += new System.EventHandler(this.tsmLoan_Click);
             // 
             // tsmReturns
             // 
@@ -95,6 +98,13 @@ namespace FV.View
             this.tsmFrancesco.Name = "tsmFrancesco";
             this.tsmFrancesco.Size = new System.Drawing.Size(148, 24);
             this.tsmFrancesco.Text = "&Francesco Virgolini";
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.cerrarSesiónToolStripMenuItem.Text = "&Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // ssDeveloper
             // 
@@ -121,11 +131,13 @@ namespace FV.View
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ssDeveloper);
             this.Controls.Add(this.msLibrary);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.msLibrary;
             this.Name = "AdminMainFrm";
             this.ShowIcon = false;
             this.Text = "Biblioteca Francesco Virgolini";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMainFrm_FormClosing);
             this.msLibrary.ResumeLayout(false);
             this.msLibrary.PerformLayout();
             this.ssDeveloper.ResumeLayout(false);
@@ -146,5 +158,6 @@ namespace FV.View
         private System.Windows.Forms.ToolStripMenuItem tsmFrancesco;
         private System.Windows.Forms.StatusStrip ssDeveloper;
         private System.Windows.Forms.ToolStripStatusLabel tsslblDevelopers;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
     }
 }

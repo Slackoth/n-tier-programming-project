@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FV.Entities;
 using FV.Data;
+using System.Data;
 
 namespace FV.Business
 {
@@ -34,6 +35,20 @@ namespace FV.Business
         public static bool GetUserSessionRole()
         {
             return new DUsers().GetUserSessionRole();
+        }
+
+        public static DataTable ListTeachers()
+        {
+            DUsers dUser = new DUsers();
+
+            return dUser.ListTeachers();
+        }
+
+        public static DataTable SearchTeachers(string value)
+        {
+            DUsers dUser = new DUsers();
+
+            return dUser.SearchTeachers(value);
         }
     }
 }

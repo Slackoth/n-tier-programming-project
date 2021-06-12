@@ -84,5 +84,66 @@ namespace FV.Data
         {
             return Convert.ToBoolean(SessionManagement.GetInstance().GetSessionProperty("role"));
         }
+
+        public DataTable ListTeachers()
+        {
+            SqlDataReader result;
+            DataTable table = new DataTable();
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection = Connection.GetInstance().CreateConnection();
+                SqlCommand command = new SqlCommand("list_all_teachers", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                result = command.ExecuteReader();
+
+                table.Load(result);
+                return table;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
+        public DataTable SearchTeachers(string value)
+        {
+            SqlDataReader result;
+            DataTable table = new DataTable();
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection = Connection.GetInstance().CreateConnection();
+                SqlCommand command = new SqlCommand("search_teachers_by_name", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@value", SqlDbType.VarChar).Value = value;
+
+                connection.Open();
+
+                result = command.ExecuteReader();
+
+                table.Load(result);
+                return table;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+        }
     }
 }

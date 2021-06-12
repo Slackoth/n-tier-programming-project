@@ -30,34 +30,34 @@ namespace FV.View
         private void InitializeComponent()
         {
             this.gbBooks = new System.Windows.Forms.GroupBox();
-            this.gbTeachers = new System.Windows.Forms.GroupBox();
-            this.lblBooks = new System.Windows.Forms.Label();
-            this.lblFilter = new System.Windows.Forms.Label();
-            this.cbBooks = new System.Windows.Forms.ComboBox();
-            this.txtBooks = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblTeachers = new System.Windows.Forms.Label();
-            this.txtTeachers = new System.Windows.Forms.TextBox();
-            this.dgvTeachers = new System.Windows.Forms.DataGridView();
-            this.btnTeachers = new System.Windows.Forms.Button();
             this.btnBooks = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.txtBooks = new System.Windows.Forms.TextBox();
+            this.cbBooks = new System.Windows.Forms.ComboBox();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.lblBooks = new System.Windows.Forms.Label();
+            this.gbTeachers = new System.Windows.Forms.GroupBox();
+            this.btnTeachers = new System.Windows.Forms.Button();
+            this.dgvTeachers = new System.Windows.Forms.DataGridView();
+            this.txtTeachers = new System.Windows.Forms.TextBox();
+            this.lblTeachers = new System.Windows.Forms.Label();
+            this.gbLoan = new System.Windows.Forms.GroupBox();
             this.dgvLoans = new System.Windows.Forms.DataGridView();
             this.lblReturnDate = new System.Windows.Forms.Label();
             this.dtpReturn = new System.Windows.Forms.DateTimePicker();
             this.btnRegisterLoan = new System.Windows.Forms.Button();
             this.gbBooks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.gbTeachers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.gbLoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).BeginInit();
             this.SuspendLayout();
             // 
             // gbBooks
             // 
             this.gbBooks.Controls.Add(this.btnBooks);
-            this.gbBooks.Controls.Add(this.dataGridView1);
+            this.gbBooks.Controls.Add(this.dgvBooks);
             this.gbBooks.Controls.Add(this.txtBooks);
             this.gbBooks.Controls.Add(this.cbBooks);
             this.gbBooks.Controls.Add(this.lblFilter);
@@ -68,6 +68,70 @@ namespace FV.View
             this.gbBooks.TabIndex = 0;
             this.gbBooks.TabStop = false;
             this.gbBooks.Text = "Búsqueda de libros";
+            // 
+            // btnBooks
+            // 
+            this.btnBooks.Location = new System.Drawing.Point(600, 44);
+            this.btnBooks.Name = "btnBooks";
+            this.btnBooks.Size = new System.Drawing.Size(94, 29);
+            this.btnBooks.TabIndex = 7;
+            this.btnBooks.Text = "Buscar";
+            this.btnBooks.UseVisualStyleBackColor = true;
+            this.btnBooks.Click += new System.EventHandler(this.btnBooks_Click);
+            // 
+            // dgvBooks
+            // 
+            this.dgvBooks.AllowUserToAddRows = false;
+            this.dgvBooks.AllowUserToDeleteRows = false;
+            this.dgvBooks.AllowUserToOrderColumns = true;
+            this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBooks.Location = new System.Drawing.Point(12, 79);
+            this.dgvBooks.Name = "dgvBooks";
+            this.dgvBooks.ReadOnly = true;
+            this.dgvBooks.RowHeadersWidth = 51;
+            this.dgvBooks.RowTemplate.Height = 29;
+            this.dgvBooks.Size = new System.Drawing.Size(682, 315);
+            this.dgvBooks.TabIndex = 4;
+            // 
+            // txtBooks
+            // 
+            this.txtBooks.Location = new System.Drawing.Point(12, 46);
+            this.txtBooks.Name = "txtBooks";
+            this.txtBooks.Size = new System.Drawing.Size(356, 27);
+            this.txtBooks.TabIndex = 3;
+            // 
+            // cbBooks
+            // 
+            this.cbBooks.FormattingEnabled = true;
+            this.cbBooks.Items.AddRange(new object[] {
+            "Título",
+            "Autor",
+            "Editorial",
+            "País",
+            "Lenguaje",
+            "Género"});
+            this.cbBooks.Location = new System.Drawing.Point(374, 45);
+            this.cbBooks.Name = "cbBooks";
+            this.cbBooks.Size = new System.Drawing.Size(220, 28);
+            this.cbBooks.TabIndex = 2;
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Location = new System.Drawing.Point(374, 22);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(58, 20);
+            this.lblFilter.TabIndex = 1;
+            this.lblFilter.Text = "Criterio";
+            // 
+            // lblBooks
+            // 
+            this.lblBooks.AutoSize = true;
+            this.lblBooks.Location = new System.Drawing.Point(12, 23);
+            this.lblBooks.Name = "lblBooks";
+            this.lblBooks.Size = new System.Drawing.Size(201, 20);
+            this.lblBooks.TabIndex = 0;
+            this.lblBooks.Text = "Frase o palabra de búsqueda";
             // 
             // gbTeachers
             // 
@@ -82,68 +146,15 @@ namespace FV.View
             this.gbTeachers.TabStop = false;
             this.gbTeachers.Text = "Búsqueda de docentes";
             // 
-            // lblBooks
+            // btnTeachers
             // 
-            this.lblBooks.AutoSize = true;
-            this.lblBooks.Location = new System.Drawing.Point(12, 23);
-            this.lblBooks.Name = "lblBooks";
-            this.lblBooks.Size = new System.Drawing.Size(201, 20);
-            this.lblBooks.TabIndex = 0;
-            this.lblBooks.Text = "Frase o palabra de búsqueda";
-            // 
-            // lblFilter
-            // 
-            this.lblFilter.AutoSize = true;
-            this.lblFilter.Location = new System.Drawing.Point(374, 22);
-            this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(43, 20);
-            this.lblFilter.TabIndex = 1;
-            this.lblFilter.Text = "Filtro";
-            // 
-            // cbBooks
-            // 
-            this.cbBooks.FormattingEnabled = true;
-            this.cbBooks.Location = new System.Drawing.Point(374, 45);
-            this.cbBooks.Name = "cbBooks";
-            this.cbBooks.Size = new System.Drawing.Size(220, 28);
-            this.cbBooks.TabIndex = 2;
-            // 
-            // txtBooks
-            // 
-            this.txtBooks.Location = new System.Drawing.Point(12, 46);
-            this.txtBooks.Name = "txtBooks";
-            this.txtBooks.Size = new System.Drawing.Size(356, 27);
-            this.txtBooks.TabIndex = 3;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 79);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(682, 315);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // lblTeachers
-            // 
-            this.lblTeachers.AutoSize = true;
-            this.lblTeachers.Location = new System.Drawing.Point(6, 23);
-            this.lblTeachers.Name = "lblTeachers";
-            this.lblTeachers.Size = new System.Drawing.Size(219, 20);
-            this.lblTeachers.TabIndex = 1;
-            this.lblTeachers.Text = "Nombre o apellido del docente";
-            // 
-            // txtTeachers
-            // 
-            this.txtTeachers.Location = new System.Drawing.Point(6, 48);
-            this.txtTeachers.Name = "txtTeachers";
-            this.txtTeachers.Size = new System.Drawing.Size(450, 27);
-            this.txtTeachers.TabIndex = 4;
+            this.btnTeachers.Location = new System.Drawing.Point(600, 47);
+            this.btnTeachers.Name = "btnTeachers";
+            this.btnTeachers.Size = new System.Drawing.Size(94, 29);
+            this.btnTeachers.TabIndex = 6;
+            this.btnTeachers.Text = "Buscar";
+            this.btnTeachers.UseVisualStyleBackColor = true;
+            this.btnTeachers.Click += new System.EventHandler(this.btnTeachers_Click);
             // 
             // dgvTeachers
             // 
@@ -158,33 +169,31 @@ namespace FV.View
             this.dgvTeachers.Size = new System.Drawing.Size(688, 313);
             this.dgvTeachers.TabIndex = 5;
             // 
-            // btnTeachers
+            // txtTeachers
             // 
-            this.btnTeachers.Location = new System.Drawing.Point(600, 47);
-            this.btnTeachers.Name = "btnTeachers";
-            this.btnTeachers.Size = new System.Drawing.Size(94, 29);
-            this.btnTeachers.TabIndex = 6;
-            this.btnTeachers.Text = "Buscar";
-            this.btnTeachers.UseVisualStyleBackColor = true;
+            this.txtTeachers.Location = new System.Drawing.Point(6, 48);
+            this.txtTeachers.Name = "txtTeachers";
+            this.txtTeachers.Size = new System.Drawing.Size(450, 27);
+            this.txtTeachers.TabIndex = 4;
             // 
-            // btnBooks
+            // lblTeachers
             // 
-            this.btnBooks.Location = new System.Drawing.Point(600, 44);
-            this.btnBooks.Name = "btnBooks";
-            this.btnBooks.Size = new System.Drawing.Size(94, 29);
-            this.btnBooks.TabIndex = 7;
-            this.btnBooks.Text = "Buscar";
-            this.btnBooks.UseVisualStyleBackColor = true;
+            this.lblTeachers.AutoSize = true;
+            this.lblTeachers.Location = new System.Drawing.Point(6, 23);
+            this.lblTeachers.Name = "lblTeachers";
+            this.lblTeachers.Size = new System.Drawing.Size(219, 20);
+            this.lblTeachers.TabIndex = 1;
+            this.lblTeachers.Text = "Nombre o apellido del docente";
             // 
-            // groupBox3
+            // gbLoan
             // 
-            this.groupBox3.Controls.Add(this.dgvLoans);
-            this.groupBox3.Location = new System.Drawing.Point(18, 418);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1146, 343);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.gbLoan.Controls.Add(this.dgvLoans);
+            this.gbLoan.Location = new System.Drawing.Point(18, 418);
+            this.gbLoan.Name = "gbLoan";
+            this.gbLoan.Size = new System.Drawing.Size(1146, 343);
+            this.gbLoan.TabIndex = 2;
+            this.gbLoan.TabStop = false;
+            this.gbLoan.Text = "Préstamos activos del docente";
             // 
             // dgvLoans
             // 
@@ -236,19 +245,20 @@ namespace FV.View
             this.Controls.Add(this.btnRegisterLoan);
             this.Controls.Add(this.dtpReturn);
             this.Controls.Add(this.lblReturnDate);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gbLoan);
             this.Controls.Add(this.gbTeachers);
             this.Controls.Add(this.gbBooks);
             this.Name = "BookLoansFrm";
             this.ShowIcon = false;
             this.Text = "Préstamo de Libros";
+            this.Load += new System.EventHandler(this.BookLoansFrm_Load);
             this.gbBooks.ResumeLayout(false);
             this.gbBooks.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.gbTeachers.ResumeLayout(false);
             this.gbTeachers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
-            this.groupBox3.ResumeLayout(false);
+            this.gbLoan.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -260,7 +270,7 @@ namespace FV.View
         private System.Windows.Forms.GroupBox gbBooks;
         private System.Windows.Forms.GroupBox gbTeachers;
         private System.Windows.Forms.Button btnBooks;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBooks;
         private System.Windows.Forms.TextBox txtBooks;
         private System.Windows.Forms.ComboBox cbBooks;
         private System.Windows.Forms.Label lblFilter;
@@ -269,7 +279,7 @@ namespace FV.View
         private System.Windows.Forms.DataGridView dgvTeachers;
         private System.Windows.Forms.TextBox txtTeachers;
         private System.Windows.Forms.Label lblTeachers;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbLoan;
         private System.Windows.Forms.DataGridView dgvLoans;
         private System.Windows.Forms.Label lblReturnDate;
         private System.Windows.Forms.DateTimePicker dtpReturn;
