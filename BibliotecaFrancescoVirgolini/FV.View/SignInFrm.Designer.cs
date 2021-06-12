@@ -56,9 +56,9 @@ namespace FV.View
             this.lblUser.AutoSize = true;
             this.lblUser.Location = new System.Drawing.Point(134, 67);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(62, 20);
+            this.lblUser.Size = new System.Drawing.Size(49, 20);
             this.lblUser.TabIndex = 1;
-            this.lblUser.Text = "Usuario:";
+            this.lblUser.Text = "Email:";
             // 
             // label3
             // 
@@ -82,6 +82,7 @@ namespace FV.View
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(337, 27);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnSignIn
             // 
@@ -91,6 +92,7 @@ namespace FV.View
             this.btnSignIn.TabIndex = 5;
             this.btnSignIn.Text = "Iniciar Sesión";
             this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // lblError
             // 
@@ -120,6 +122,7 @@ namespace FV.View
             this.Name = "SignInFrm";
             this.ShowIcon = false;
             this.Text = "Inicio de Sesión";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignInFrm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.epSignIn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
