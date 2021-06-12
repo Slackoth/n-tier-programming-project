@@ -24,6 +24,13 @@ namespace FV.Business
             }
         }
 
+        public static void SignOut()
+        {
+            DUsers dUser = new DUsers();
+
+            dUser.ExpireSession();
+        }
+
         public static bool GetUserSessionRole()
         {
             return new DUsers().GetUserSessionRole();

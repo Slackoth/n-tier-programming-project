@@ -38,7 +38,7 @@ namespace FV.Data
                 "lastname" => this.SessionUser.LastName,
                 "email" => this.SessionUser.Email,
                 "role" => this.SessionUser.Role.ToString(),
-                _ => "",
+                _ => ""
             };
         }
     }

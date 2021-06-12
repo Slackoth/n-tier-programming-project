@@ -75,6 +75,11 @@ namespace FV.Data
             SessionManagement.GetInstance().BeginSession(user);
         }
 
+        public void ExpireSession()
+        {
+            SessionManagement.GetInstance().ExpireSession();
+        }
+
         public bool GetUserSessionRole() 
         {
             return Convert.ToBoolean(SessionManagement.GetInstance().GetSessionProperty("role"));
