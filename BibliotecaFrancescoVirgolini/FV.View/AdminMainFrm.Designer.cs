@@ -53,7 +53,8 @@ namespace FV.View
             this.cerrarSesiónToolStripMenuItem});
             this.msLibrary.Location = new System.Drawing.Point(0, 0);
             this.msLibrary.Name = "msLibrary";
-            this.msLibrary.Size = new System.Drawing.Size(800, 28);
+            this.msLibrary.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.msLibrary.Size = new System.Drawing.Size(700, 24);
             this.msLibrary.TabIndex = 0;
             this.msLibrary.Text = "Libreria";
             // 
@@ -62,14 +63,15 @@ namespace FV.View
             this.tsmBooks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmManagement});
             this.tsmBooks.Name = "tsmBooks";
-            this.tsmBooks.Size = new System.Drawing.Size(63, 24);
+            this.tsmBooks.Size = new System.Drawing.Size(51, 20);
             this.tsmBooks.Text = "&Libros";
             // 
             // tsmManagement
             // 
             this.tsmManagement.Name = "tsmManagement";
-            this.tsmManagement.Size = new System.Drawing.Size(193, 26);
+            this.tsmManagement.Size = new System.Drawing.Size(180, 22);
             this.tsmManagement.Text = "Mantenimiento";
+            this.tsmManagement.Click += new System.EventHandler(this.tsmManagement_Click);
             // 
             // tsmLibrary
             // 
@@ -77,32 +79,32 @@ namespace FV.View
             this.tsmLoan,
             this.tsmReturns});
             this.tsmLibrary.Name = "tsmLibrary";
-            this.tsmLibrary.Size = new System.Drawing.Size(90, 24);
+            this.tsmLibrary.Size = new System.Drawing.Size(71, 20);
             this.tsmLibrary.Text = "&Biblioteca";
             // 
             // tsmLoan
             // 
             this.tsmLoan.Name = "tsmLoan";
-            this.tsmLoan.Size = new System.Drawing.Size(181, 26);
+            this.tsmLoan.Size = new System.Drawing.Size(145, 22);
             this.tsmLoan.Text = "Préstamos";
             this.tsmLoan.Click += new System.EventHandler(this.tsmLoan_Click);
             // 
             // tsmReturns
             // 
             this.tsmReturns.Name = "tsmReturns";
-            this.tsmReturns.Size = new System.Drawing.Size(181, 26);
+            this.tsmReturns.Size = new System.Drawing.Size(145, 22);
             this.tsmReturns.Text = "Devoluciones";
             // 
             // tsmFrancesco
             // 
             this.tsmFrancesco.Name = "tsmFrancesco";
-            this.tsmFrancesco.Size = new System.Drawing.Size(148, 24);
+            this.tsmFrancesco.Size = new System.Drawing.Size(119, 20);
             this.tsmFrancesco.Text = "&Francesco Virgolini";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.cerrarSesiónToolStripMenuItem.Text = "&Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -111,28 +113,30 @@ namespace FV.View
             this.ssDeveloper.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ssDeveloper.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslblDevelopers});
-            this.ssDeveloper.Location = new System.Drawing.Point(0, 424);
+            this.ssDeveloper.Location = new System.Drawing.Point(0, 316);
             this.ssDeveloper.Name = "ssDeveloper";
-            this.ssDeveloper.Size = new System.Drawing.Size(800, 26);
+            this.ssDeveloper.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.ssDeveloper.Size = new System.Drawing.Size(700, 22);
             this.ssDeveloper.TabIndex = 1;
             this.ssDeveloper.Text = "Desarrolladores";
             // 
             // tsslblDevelopers
             // 
             this.tsslblDevelopers.Name = "tsslblDevelopers";
-            this.tsslblDevelopers.Size = new System.Drawing.Size(331, 20);
+            this.tsslblDevelopers.Size = new System.Drawing.Size(260, 17);
             this.tsslblDevelopers.Text = "Desarrollado por Luis Calderón - Rene Meléndez";
             // 
             // AdminMainFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.ssDeveloper);
             this.Controls.Add(this.msLibrary);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.msLibrary;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminMainFrm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

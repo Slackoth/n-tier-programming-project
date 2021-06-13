@@ -41,5 +41,19 @@ namespace FV.View
             form.Show();
             this.Hide();
         }
+
+
+        private void tsmManagement_Click(object sender, EventArgs e)
+        {
+            CrudBooks form = new();
+            form.MdiParent = this;
+
+            form.Show();
+        }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

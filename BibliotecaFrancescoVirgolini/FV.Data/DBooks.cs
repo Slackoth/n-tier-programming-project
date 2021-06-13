@@ -86,5 +86,63 @@ namespace FV.Data
                 _ => "search_books_by_title"
             };
         }
+
+        private bool insertBook(string title, int quant,string isbn, int edition, int pages,string ubication,string desc, int editorial, int country, int language, int subject) {
+            //missing part to get type of book
+            bool inserted = false;
+
+            SqlConnection conn = new SqlConnection();
+            SqlParameter[] param = {
+                 new SqlParameter("@title", SqlDbType.VarChar) {
+                    Value = title
+                },
+                 new SqlParameter("@quantity", SqlDbType.Int) {
+                    Value = quant
+                },
+                 new SqlParameter("@isbn", SqlDbType.VarChar) {
+                    Value = isbn
+                },
+                 new SqlParameter("@no_edition", SqlDbType.Int) {
+                    Value = edition
+                },
+                 new SqlParameter("@no_pages", SqlDbType.Int) {
+                    Value = pages
+                },
+                 new SqlParameter("@ubication", SqlDbType.VarChar) {
+                    Value = ubication
+                },
+                 new SqlParameter("@bookdesc", SqlDbType.VarChar) {
+                    Value = desc
+                },
+                new SqlParameter("@editorial_id", SqlDbType.Int) {
+                    Value = editorial
+                },
+                new SqlParameter("@countries_id", SqlDbType.Int) {
+                    Value = country
+                },
+                new SqlParameter("@languages_id", SqlDbType.Int) {
+                    Value = language
+                },
+                 new SqlParameter("@subject_id", SqlDbType.Int) {
+                    Value = language
+                }
+            };
+
+            try {
+                conn = Connection.GetInstance().CreateConnection();
+                SqlCommand cmd = new SqlCommand("insert_book", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(param);
+                conn.Open();
+
+                inserted = cmd.ExecuteNonQuery() == 1;
+            
+            }catch (Exception) {
+                throw;
+            }
+
+            return inserted;
+        
+        }
     }
 }

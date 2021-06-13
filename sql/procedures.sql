@@ -216,8 +216,8 @@ create or alter procedure list_all_books
 	go
 
 create or alter procedure insert_book
-	@title varchar(250),@quantity int, @isbn varchar(18), @no_edition int, @no_pages int, @ubication varchar(50), @bookdesc varchar(350),@book_id int, @editorial_id int, @countries_id int,@languages_id int,@subject_id int 
+	@title varchar(250),@quantity int, @isbn varchar(18), @no_edition int, @no_pages int, @ubication varchar(50), @bookdesc varchar(350), @editorial_id int, @countries_id int,@languages_id int,@subject_id int 
 	as 
-	insert into books(title, quantity, isbn, no_edition, no_pages,ubication,bookdescription, book_id, editorial_id, countries_id, languages_id, subject_id) 
-	values(@title, @quantity, @isbn, @no_edition, @no_pages, @ubication, @bookdesc, @book_id, @editorial_id, @countries_id, @languages_id, @subject_id)
+	insert into books(title, quantity, isbn, no_edition, no_pages,ubication,bookdescription, editorial_id, countries_id, languages_id, subject_id) 
+	values(@title, @quantity, @isbn, @no_edition, @no_pages, @ubication, @bookdesc, @editorial_id, @countries_id, @languages_id, @subject_id)
 	go
