@@ -19,7 +19,8 @@ namespace FV.Data
         private Connection()
         {
             this.dbName = "biblioteca_francesco_virgolini_bd";
-            this.serverName = "DESKTOP-RLD7QMI"; // Or IP address in case of a remote DB
+            //this.serverName = "DESKTOP-RLD7QMI"; // Or IP address in case of a remote DB
+            this.serverName = "DESKTOP-JB2D4KF";
             this.dbUser = "rancheritos";
             this.dbKeyCode = "t4qu3r1t0s";
             this.dbSecurity = true; // SQL or Windows authentication
@@ -33,8 +34,15 @@ namespace FV.Data
             {
                 connection.ConnectionString = "Server=" + this.serverName + "; Database=" + this.dbName + ";";
 
-                connection.ConnectionString += dbSecurity ? "Integrated Security=SSPI" : "User Id="
-                    + this.dbUser + "; Password=" + this.dbKeyCode;
+                if (this.dbSecurity)
+                {
+                    connection.ConnectionString = connection.ConnectionString + "Integrated Security = SSPI";
+                }
+                else {
+                    connection.ConnectionString = connection.ConnectionString + "User Id=" + this.dbUser + "; Password=" + this.dbKeyCode;
+
+                }
+                
             }
             catch (Exception)
             {

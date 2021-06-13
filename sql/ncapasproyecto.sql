@@ -83,3 +83,4 @@ create  table loans(
 	foreign key (copies_id) references copies(copies_id),
 	foreign key (users_id) references users(users_id)
 );
+
