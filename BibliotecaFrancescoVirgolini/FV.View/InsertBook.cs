@@ -66,9 +66,10 @@ namespace FV.View
         private void button1_Click(object sender, EventArgs e)
         {
             int a = EditorialList.SelectedIndex;
-            MessageBox.Show(a.ToString());
+            
             string response = BBooks.insertbooks(booktitle.Text, Convert.ToInt32(Math.Round(bookquantity.Value, 0)), bookisbn.Text, Convert.ToInt32(Math.Round(boookedition.Value, 0)), Convert.ToInt32(Math.Round(numericUpDown1.Value, 0)), textBox1.Text, bookdesc.Text, EditorialList.SelectedIndex+1, countrieList.SelectedIndex+1, LanguageList.SelectedIndex+1, SubjectList.SelectedIndex+1);
-            MessageBox.Show("terminado");
+            MessageBox.Show(response);
+            Close();
 
         }
 

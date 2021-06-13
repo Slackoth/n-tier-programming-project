@@ -46,6 +46,7 @@ namespace FV.View
             
 
             ib.ShowDialog();
+            refreshdata();
         }
 
 
