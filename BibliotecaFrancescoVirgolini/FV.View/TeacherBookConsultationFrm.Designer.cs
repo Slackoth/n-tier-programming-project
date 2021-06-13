@@ -125,11 +125,11 @@ namespace FV.View
             // 
             // tsbSignOut
             // 
-            this.tsbSignOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSignOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbSignOut.Image = global::FV.View.Properties.Resources.exit;
             this.tsbSignOut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSignOut.Name = "tsbSignOut";
-            this.tsbSignOut.Size = new System.Drawing.Size(29, 24);
+            this.tsbSignOut.Size = new System.Drawing.Size(100, 24);
             this.tsbSignOut.Text = "Cerrar Sesión";
             this.tsbSignOut.Click += new System.EventHandler(this.tsbSignOut_Click);
             // 
@@ -153,6 +153,7 @@ namespace FV.View
             this.Controls.Add(this.gbBook);
             this.Name = "TeacherBookConsultationFrm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Libros";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TeacherBookConsultationFrm_FormClosing);
             this.Load += new System.EventHandler(this.TeacherBookConsultationFrm_Load);

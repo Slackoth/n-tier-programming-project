@@ -127,3 +127,83 @@ select users_id, first_name, last_name, email
 from users where user_role = 0 and (first_name like '%' + @value + '%'
 or last_name like '%' + @value + '%')
 go
+
+create or alter procedure list_teacher_loans
+@id int
+as
+select l.loan_id, b.title, l.loan_date, l.loan_devolution
+from loans l inner join copies c
+on l.copies_id = c.copies_id inner join users u
+on l.users_id = u.users_id inner join books b
+on c.books_id = b.book_id
+where u.users_id = @id and l.returned = 0;
+go
+
+create or alter procedure search_teacher_loans
+@id int, @date date
+as
+select l.loan_id, b.title, l.loan_date, l.loan_devolution
+from loans l inner join copies c
+on l.copies_id = c.copies_id inner join users u
+on l.users_id = u.users_id inner join books b
+on c.books_id = b.book_id
+where u.users_id = @id and l.returned = 0 and l.loan_devolution = @date;
+go
+
+create or alter procedure is_book_loanable
+@id int, @loanable bit output
+as
+declare @available int;
+declare @loaned int;
+declare @total int;
+
+select @available = COUNT(c.copies_id)
+from books b inner join copies c
+on b.book_id = c.books_id 
+where b.book_id = @id and c.copie_state = 1;
+
+select @loaned = COUNT(c.copies_id)
+from books b inner join copies c
+on b.book_id = c.books_id left join loans l
+on c.copies_id = l.copies_id
+where b.book_id = @id and c.copie_state = 1 and l.returned = 0;
+
+set @total = @available - @loaned;
+
+if(ABS(@total) > 1)
+begin;
+set @loanable = 1;
+end;
+else
+begin;
+set @loanable = 0;
+end;
+go
+
+create or alter procedure get_loanable_books
+@id int
+as
+select c.copies_id
+from books b inner join copies c
+on b.book_id = c.books_id left join loans l
+on c.copies_id = l.copies_id
+where b.book_id = @id and c.copie_state = 1 and (l.returned is null or l.returned = 1);
+go
+
+create or alter procedure teacher_has_loaned_book
+@bookId int, @teacherId int
+as
+select c.copies_id
+from books b inner join copies c
+on b.book_id = c.books_id inner join loans l
+on c.copies_id = l.copies_id inner join users u
+on l.users_id = u.users_id
+where b.book_id = @bookId and u.users_id = @teacherId and l.returned = 0 ;
+go
+
+create or alter procedure insert_loan
+@loanDate date, @returnDate date, @copyId int, @teacherId int
+as
+insert into loans(loan_date, loan_devolution, returned, copies_id, users_id) 
+values(@loanDate, @returnDate,0,@copyId, @teacherId);
+go

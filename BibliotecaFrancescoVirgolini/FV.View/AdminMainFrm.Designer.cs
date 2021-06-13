@@ -135,6 +135,7 @@ namespace FV.View
             this.MainMenuStrip = this.msLibrary;
             this.Name = "AdminMainFrm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Biblioteca Francesco Virgolini";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminMainFrm_FormClosing);

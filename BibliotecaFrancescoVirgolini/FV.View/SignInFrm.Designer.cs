@@ -36,7 +36,6 @@ namespace FV.View
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSignIn = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
             this.epSignIn = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.epSignIn)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +44,7 @@ namespace FV.View
             // 
             this.lblLibrary.AutoSize = true;
             this.lblLibrary.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLibrary.Location = new System.Drawing.Point(134, 9);
+            this.lblLibrary.Location = new System.Drawing.Point(144, 119);
             this.lblLibrary.Name = "lblLibrary";
             this.lblLibrary.Size = new System.Drawing.Size(405, 41);
             this.lblLibrary.TabIndex = 0;
@@ -54,7 +53,7 @@ namespace FV.View
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(134, 67);
+            this.lblUser.Location = new System.Drawing.Point(144, 177);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(49, 20);
             this.lblUser.TabIndex = 1;
@@ -63,7 +62,7 @@ namespace FV.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(134, 100);
+            this.label3.Location = new System.Drawing.Point(144, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 2;
@@ -71,14 +70,14 @@ namespace FV.View
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(202, 64);
+            this.txtUser.Location = new System.Drawing.Point(212, 174);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(337, 27);
             this.txtUser.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(202, 97);
+            this.txtPassword.Location = new System.Drawing.Point(212, 207);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(337, 27);
             this.txtPassword.TabIndex = 4;
@@ -86,22 +85,13 @@ namespace FV.View
             // 
             // btnSignIn
             // 
-            this.btnSignIn.Location = new System.Drawing.Point(134, 212);
+            this.btnSignIn.Location = new System.Drawing.Point(212, 249);
             this.btnSignIn.Name = "btnSignIn";
             this.btnSignIn.Size = new System.Drawing.Size(140, 29);
             this.btnSignIn.TabIndex = 5;
             this.btnSignIn.Text = "Iniciar Sesión";
             this.btnSignIn.UseVisualStyleBackColor = true;
             this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(134, 159);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(61, 20);
-            this.lblError.TabIndex = 6;
-            this.lblError.Text = "(*) Error";
             // 
             // epSignIn
             // 
@@ -111,8 +101,7 @@ namespace FV.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 253);
-            this.Controls.Add(this.lblError);
+            this.ClientSize = new System.Drawing.Size(692, 443);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
@@ -121,6 +110,7 @@ namespace FV.View
             this.Controls.Add(this.lblLibrary);
             this.Name = "SignInFrm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de Sesión";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignInFrm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.epSignIn)).EndInit();
@@ -137,7 +127,6 @@ namespace FV.View
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnSignIn;
-        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.ErrorProvider epSignIn;
     }
 }
