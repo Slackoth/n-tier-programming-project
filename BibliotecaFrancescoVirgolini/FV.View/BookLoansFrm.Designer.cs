@@ -42,9 +42,10 @@ namespace FV.View
             this.txtTeachers = new System.Windows.Forms.TextBox();
             this.lblTeachers = new System.Windows.Forms.Label();
             this.gbLoan = new System.Windows.Forms.GroupBox();
+            this.btnLoans = new System.Windows.Forms.Button();
             this.dgvLoans = new System.Windows.Forms.DataGridView();
-            this.lblReturnDate = new System.Windows.Forms.Label();
             this.dtpReturn = new System.Windows.Forms.DateTimePicker();
+            this.lblReturnDate = new System.Windows.Forms.Label();
             this.btnRegisterLoan = new System.Windows.Forms.Button();
             this.gbBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
@@ -86,10 +87,12 @@ namespace FV.View
             this.dgvBooks.AllowUserToOrderColumns = true;
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooks.Location = new System.Drawing.Point(12, 79);
+            this.dgvBooks.MultiSelect = false;
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.ReadOnly = true;
             this.dgvBooks.RowHeadersWidth = 51;
             this.dgvBooks.RowTemplate.Height = 29;
+            this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBooks.Size = new System.Drawing.Size(682, 315);
             this.dgvBooks.TabIndex = 4;
             // 
@@ -148,7 +151,7 @@ namespace FV.View
             // 
             // btnTeachers
             // 
-            this.btnTeachers.Location = new System.Drawing.Point(600, 47);
+            this.btnTeachers.Location = new System.Drawing.Point(462, 48);
             this.btnTeachers.Name = "btnTeachers";
             this.btnTeachers.Size = new System.Drawing.Size(94, 29);
             this.btnTeachers.TabIndex = 6;
@@ -163,11 +166,15 @@ namespace FV.View
             this.dgvTeachers.AllowUserToOrderColumns = true;
             this.dgvTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeachers.Location = new System.Drawing.Point(6, 81);
+            this.dgvTeachers.MultiSelect = false;
             this.dgvTeachers.Name = "dgvTeachers";
             this.dgvTeachers.ReadOnly = true;
             this.dgvTeachers.RowHeadersWidth = 51;
+            this.dgvTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeachers.Size = new System.Drawing.Size(688, 313);
             this.dgvTeachers.TabIndex = 5;
+            this.dgvTeachers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeachers_CellClick);
+            this.dgvTeachers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeachers_CellContentClick);
             // 
             // txtTeachers
             // 
@@ -187,13 +194,26 @@ namespace FV.View
             // 
             // gbLoan
             // 
+            this.gbLoan.Controls.Add(this.btnLoans);
             this.gbLoan.Controls.Add(this.dgvLoans);
+            this.gbLoan.Controls.Add(this.dtpReturn);
+            this.gbLoan.Controls.Add(this.lblReturnDate);
             this.gbLoan.Location = new System.Drawing.Point(18, 418);
             this.gbLoan.Name = "gbLoan";
-            this.gbLoan.Size = new System.Drawing.Size(1146, 343);
+            this.gbLoan.Size = new System.Drawing.Size(900, 343);
             this.gbLoan.TabIndex = 2;
             this.gbLoan.TabStop = false;
             this.gbLoan.Text = "Préstamos activos del docente";
+            // 
+            // btnLoans
+            // 
+            this.btnLoans.Location = new System.Drawing.Point(702, 82);
+            this.btnLoans.Name = "btnLoans";
+            this.btnLoans.Size = new System.Drawing.Size(187, 29);
+            this.btnLoans.TabIndex = 7;
+            this.btnLoans.Text = "Buscar";
+            this.btnLoans.UseVisualStyleBackColor = true;
+            this.btnLoans.Click += new System.EventHandler(this.btnLoans_Click);
             // 
             // dgvLoans
             // 
@@ -202,30 +222,33 @@ namespace FV.View
             this.dgvLoans.AllowUserToOrderColumns = true;
             this.dgvLoans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoans.Location = new System.Drawing.Point(6, 26);
+            this.dgvLoans.MultiSelect = false;
             this.dgvLoans.Name = "dgvLoans";
             this.dgvLoans.ReadOnly = true;
             this.dgvLoans.RowHeadersWidth = 51;
-            this.dgvLoans.Size = new System.Drawing.Size(1134, 311);
+            this.dgvLoans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLoans.Size = new System.Drawing.Size(690, 311);
             this.dgvLoans.TabIndex = 6;
-            // 
-            // lblReturnDate
-            // 
-            this.lblReturnDate.AutoSize = true;
-            this.lblReturnDate.Location = new System.Drawing.Point(1170, 415);
-            this.lblReturnDate.Name = "lblReturnDate";
-            this.lblReturnDate.Size = new System.Drawing.Size(187, 20);
-            this.lblReturnDate.TabIndex = 3;
-            this.lblReturnDate.Text = "Fecha límite de devolución";
             // 
             // dtpReturn
             // 
             this.dtpReturn.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.dtpReturn.Location = new System.Drawing.Point(1170, 441);
+            this.dtpReturn.CustomFormat = "";
+            this.dtpReturn.Location = new System.Drawing.Point(702, 49);
             this.dtpReturn.MaxDate = new System.DateTime(9010, 12, 31, 0, 0, 0, 0);
             this.dtpReturn.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpReturn.Name = "dtpReturn";
-            this.dtpReturn.Size = new System.Drawing.Size(250, 27);
+            this.dtpReturn.Size = new System.Drawing.Size(187, 27);
             this.dtpReturn.TabIndex = 4;
+            // 
+            // lblReturnDate
+            // 
+            this.lblReturnDate.AutoSize = true;
+            this.lblReturnDate.Location = new System.Drawing.Point(702, 26);
+            this.lblReturnDate.Name = "lblReturnDate";
+            this.lblReturnDate.Size = new System.Drawing.Size(187, 20);
+            this.lblReturnDate.TabIndex = 3;
+            this.lblReturnDate.Text = "Fecha límite de devolución";
             // 
             // btnRegisterLoan
             // 
@@ -236,6 +259,7 @@ namespace FV.View
             this.btnRegisterLoan.TabIndex = 7;
             this.btnRegisterLoan.Text = "Registrar Préstamo";
             this.btnRegisterLoan.UseVisualStyleBackColor = true;
+            this.btnRegisterLoan.Click += new System.EventHandler(this.btnRegisterLoan_Click);
             // 
             // BookLoansFrm
             // 
@@ -243,13 +267,12 @@ namespace FV.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1432, 773);
             this.Controls.Add(this.btnRegisterLoan);
-            this.Controls.Add(this.dtpReturn);
-            this.Controls.Add(this.lblReturnDate);
             this.Controls.Add(this.gbLoan);
             this.Controls.Add(this.gbTeachers);
             this.Controls.Add(this.gbBooks);
             this.Name = "BookLoansFrm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Préstamo de Libros";
             this.Load += new System.EventHandler(this.BookLoansFrm_Load);
             this.gbBooks.ResumeLayout(false);
@@ -259,9 +282,9 @@ namespace FV.View
             this.gbTeachers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
             this.gbLoan.ResumeLayout(false);
+            this.gbLoan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoans)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -284,5 +307,6 @@ namespace FV.View
         private System.Windows.Forms.Label lblReturnDate;
         private System.Windows.Forms.DateTimePicker dtpReturn;
         private System.Windows.Forms.Button btnRegisterLoan;
+        private System.Windows.Forms.Button btnLoans;
     }
 }
