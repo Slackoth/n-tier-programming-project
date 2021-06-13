@@ -31,6 +31,7 @@ namespace FV.View
         {
             this.bookgv = new System.Windows.Forms.DataGridView();
             this.createBook = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,11 +55,22 @@ namespace FV.View
             this.createBook.UseVisualStyleBackColor = true;
             this.createBook.Click += new System.EventHandler(this.createBook_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(166, 314);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 54);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            
+            // 
             // CrudBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.createBook);
             this.Controls.Add(this.bookgv);
             this.Name = "CrudBooks";
@@ -73,5 +85,6 @@ namespace FV.View
 
         private System.Windows.Forms.DataGridView bookgv;
         private System.Windows.Forms.Button createBook;
+        private System.Windows.Forms.Button button1;
     }
 }

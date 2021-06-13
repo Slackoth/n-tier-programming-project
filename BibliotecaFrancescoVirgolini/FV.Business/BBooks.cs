@@ -23,5 +23,22 @@ namespace FV.Business
 
             return dBooks.Search(value, type);
         }
+
+        public static string insertbooks(string title, int quant, string isbn, int edition, int pages, string ubication, string desc, int editorial, int country, int language, int subject) {
+
+            DBooks db = new DBooks();
+
+            if (db.insertBook(title, quant, isbn, edition, pages, ubication, desc, editorial, country, language, subject)) {
+                return "Agregado Exitosamente";
+            }
+            else {
+                return "mamma mia";
+            }
+
+
+            
+        
+        
+        }
     }
 }

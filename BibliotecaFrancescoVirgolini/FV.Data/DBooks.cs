@@ -87,7 +87,7 @@ namespace FV.Data
             };
         }
 
-        private bool insertBook(string title, int quant,string isbn, int edition, int pages,string ubication,string desc, int editorial, int country, int language, int subject) {
+        public bool insertBook(string title, int quant,string isbn, int edition, int pages,string ubication,string desc, int editorial, int country, int language, int subject) {
             //missing part to get type of book
             bool inserted = false;
 
