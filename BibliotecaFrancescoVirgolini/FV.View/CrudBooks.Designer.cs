@@ -87,7 +87,7 @@ namespace FV.View
             this.Controls.Add(this.createBook);
             this.Controls.Add(this.bookgv);
             this.Name = "CrudBooks";
-            this.Text = "CrudBooksFrm";
+            this.Text = "CRUD LIBROS";
             this.Load += new System.EventHandler(this.CrudBooksFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bookgv)).EndInit();
             this.ResumeLayout(false);
