@@ -39,7 +39,7 @@ namespace FV.View
             // 
             // Delete
             // 
-            Delete.Location = new System.Drawing.Point(649, 388);
+            Delete.Location = new System.Drawing.Point(1024, 439);
             Delete.Name = "Delete";
             Delete.Size = new System.Drawing.Size(139, 50);
             Delete.TabIndex = 3;
@@ -53,13 +53,13 @@ namespace FV.View
             this.bookgv.Location = new System.Drawing.Point(12, 12);
             this.bookgv.Name = "bookgv";
             this.bookgv.RowTemplate.Height = 25;
-            this.bookgv.Size = new System.Drawing.Size(776, 344);
+            this.bookgv.Size = new System.Drawing.Size(1151, 411);
             this.bookgv.TabIndex = 0;
             this.bookgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // createBook
             // 
-            this.createBook.Location = new System.Drawing.Point(12, 388);
+            this.createBook.Location = new System.Drawing.Point(12, 439);
             this.createBook.Name = "createBook";
             this.createBook.Size = new System.Drawing.Size(140, 50);
             this.createBook.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace FV.View
             // 
             // Update
             // 
-            this.Update.Location = new System.Drawing.Point(322, 388);
+            this.Update.Location = new System.Drawing.Point(512, 439);
             this.Update.Name = "Update";
             this.Update.Size = new System.Drawing.Size(139, 50);
             this.Update.TabIndex = 2;
@@ -81,7 +81,7 @@ namespace FV.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1175, 501);
             this.Controls.Add(Delete);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.createBook);
