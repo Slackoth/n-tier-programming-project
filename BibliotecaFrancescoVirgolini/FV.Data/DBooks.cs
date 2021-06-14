@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,6 +83,7 @@ namespace FV.Data
                 3 => "search_books_by_country",
                 4 => "search_books_by_language",
                 5 => "search_books_by_subject",
+                6 => "searchbook_update",
                 _ => "search_books_by_title"
             };
         }
@@ -212,6 +213,77 @@ namespace FV.Data
             }
 
         }
+
+        public bool updatebook(int id, string title, int quant, string isbn, int edition, int pages, string ubication, string desc, int editorial, int country, int language, int subject, int authorid)
+        {
+            //missing part to get type of book
+            bool updated = false;
+
+            SqlConnection conn = new SqlConnection();
+            SqlParameter[] param = {
+                new SqlParameter("@id", SqlDbType.Int) {
+                    Value = id
+                },
+                 new SqlParameter("@title", SqlDbType.VarChar) {
+                    Value = title
+                },
+                 new SqlParameter("@quantity", SqlDbType.Int) {
+                    Value = quant
+                },
+                 new SqlParameter("@isbn", SqlDbType.VarChar) {
+                    Value = isbn
+                },
+                 new SqlParameter("@no_edition", SqlDbType.Int) {
+                    Value = edition
+                },
+                 new SqlParameter("@no_pages", SqlDbType.Int) {
+                    Value = pages
+                },
+                 new SqlParameter("@ubication", SqlDbType.VarChar) {
+                    Value = ubication
+                },
+                 new SqlParameter("@bookdesc", SqlDbType.VarChar) {
+                    Value = desc
+                },
+                new SqlParameter("@editorial_id", SqlDbType.Int) {
+                    Value = editorial
+                },
+                new SqlParameter("@countries_id", SqlDbType.Int) {
+                    Value = country
+                },
+                new SqlParameter("@languages_id", SqlDbType.Int) {
+                    Value = language
+                },
+                 new SqlParameter("@subject_id", SqlDbType.Int) {
+                    Value = language
+                },
+                 new SqlParameter("@authorsid", SqlDbType.Int) {
+                    Value = authorid
+                },
+            };
+
+            try
+            {
+                conn = Connection.GetInstance().CreateConnection();
+                SqlCommand cmd = new SqlCommand("update_book", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(param);
+                conn.Open();
+
+                updated = cmd.ExecuteNonQuery() == 1;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return !updated;
+
+        }
+
+
+
     }
 
 }

@@ -66,5 +66,20 @@ namespace FV.Business
                 return "Error Eliminandolo, intentelo de nuevo";
             }
         }
-    }
+
+        public static string update_books(int id, string title, int quant, string isbn, int edition, int pages, string ubication, string desc, int editorial, int country, int language, int subject, int authorid)
+        {
+
+            DBooks db = new DBooks();
+
+            if (db.updatebook(id, title, quant, isbn, edition, pages, ubication, desc, editorial, country, language, subject, authorid)) {
+
+                return "Actualizado Exitosamente";
+            }
+            else {
+
+                return "Error Actualizando";
+            }
+        }
+        }
 }

@@ -51,8 +51,23 @@ namespace FV.View
 
         private void Update_Click(object sender, EventArgs e)
         {
-            string row = bookgv.SelectedRows[0].Cells[0].Value.ToString();
-            
+
+
+                if (bookgv.SelectedRows[0].Cells[0].Value.ToString() != null)
+            {
+                UpdateBooks ib = new UpdateBooks();
+                ib.settitle(bookgv.SelectedRows[0].Cells[1].Value.ToString());
+
+                ib.ShowDialog();
+                refreshdata();
+
+                
+            }
+            else
+            {
+                MessageBox.Show("seleccione una linea completa!!");
+            }
+
         }
 
 

@@ -35,6 +35,7 @@ where b.title like '%' + @value + '%'
 order by b.title asc
 go;
 
+
 create or alter procedure search_books_by_author
 @value varchar(255)
 as
@@ -221,3 +222,98 @@ create or alter procedure insert_book
 	insert into books(title, quantity, isbn, no_edition, no_pages,ubication,bookdescription, editorial_id, countries_id, languages_id, subject_id) 
 	values(@title, @quantity, @isbn, @no_edition, @no_pages, @ubication, @bookdesc, @editorial_id, @countries_id, @languages_id, @subject_id)
 	go
+
+
+exec insert_book @title='hola', @quantity=2,@isbn='356-643-132',@no_edition=2,@no_pages=3,@ubication='more', @bookdesc='es un libro',@editorial_id=2, @countries_id=2,@languages_id=2, @subject_id= 2;
+
+	select * from copies
+
+
+	
+
+create or alter procedure list_authors
+as
+select a.authors_id as id,concat(a.first_name,' ',a.last_name) as names from authors a
+go
+
+
+
+create or alter procedure list_editorials
+as
+select e.editorial_id as id, e.editorial_name as names from editorials e
+go
+
+create or alter procedure list_languages
+as 
+select l.language_id as id, l.language_name as names from languages l
+go
+
+create or alter procedure list_subjects
+as
+select s.subjects_id as id, s.subject_name as names from subjects s
+go
+
+exec list_subjects
+
+create or alter procedure list_countries
+as
+select c.country_id as id, c.country_name as names from country c
+go
+
+create or alter procedure delete_book
+@id_book int
+as
+delete from authors_books where books_id=@id_book
+delete from copies where books_id=@id_book
+delete from books where book_id=@id_book 
+go
+
+select * from copies
+
+create or alter procedure book_getid
+@title varchar(150)
+as
+select book_id as id from books where title= @title
+go
+
+
+create or alter procedure insert_authorsxbooks
+@bookid int, @authorsid int
+as
+insert into authors_books(books_id, authors_id) values(@bookid, @authorsid);
+
+
+create or alter procedure insert_copies
+@bookid int
+as 
+insert into copies(books_id,copie_state) values(@bookid, 0)
+go
+
+
+
+create or alter procedure searchbook_update
+@value varchar(150)
+as
+select b.book_id, b.title, b.isbn, b.no_edition,b.no_pages,b.quantity, b.ubication, b.bookdescription, b.editorial_id, b.countries_id, b.languages_id, b.subject_id, ab.authors_id from books b left join authors_books ab on ab.books_id= b.book_id where b.title=@value
+go
+
+exec searchbook_update @value='nel'
+
+select*from books
+
+
+create or alter procedure update_book
+
+
+@id int, @title varchar(250),@quantity int, @isbn varchar(18), @no_edition int, @no_pages int, @ubication varchar(50), @bookdesc varchar(350), @editorial_id int, @countries_id int,@languages_id int,@subject_id int,@authorsid int
+as
+update books  
+set title=@title, quantity=@quantity, isbn=@isbn, no_edition=@no_edition, no_pages=@no_pages, ubication=@ubication, bookdescription=@bookdesc, editorial_id=@editorial_id,countries_id=@countries_id, languages_id=@languages_id,subject_id=@subject_id
+where book_id=@id
+
+update authors_books
+set authors_id= @authorsid
+where books_id=@id
+
+
+
