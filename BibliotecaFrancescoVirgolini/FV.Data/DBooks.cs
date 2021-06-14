@@ -174,6 +174,44 @@ namespace FV.Data
 
             return deleted;
         }
+
+
+        public DataTable getid(string title) {
+
+            SqlDataReader result;
+            DataTable table = new DataTable();
+            SqlConnection conn = new SqlConnection();
+            SqlParameter[] param = {
+                new SqlParameter("@title", SqlDbType.VarChar) {
+                    Value = title
+                }
+            };
+
+            try
+            {
+                conn = Connection.GetInstance().CreateConnection();
+                SqlCommand command = new SqlCommand("book_getid" , conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddRange(param);
+                
+                conn.Open();
+
+                result = command.ExecuteReader();
+
+                table.Load(result);
+                return table;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+
+        }
     }
 
 }

@@ -39,5 +39,37 @@ namespace FV.Data
             
             }
         }
+
+        public Boolean insert_authorsxbooks(int bookid, int authorid) {
+            bool inserted = false;
+            SqlConnection conn = new SqlConnection();
+            SqlParameter[] param = {
+                 new SqlParameter("@bookid", SqlDbType.VarChar) {
+                    Value = bookid
+                },
+                 new SqlParameter("@authorsid", SqlDbType.VarChar) {
+                    Value = authorid
+                },
+            };
+
+            try
+            {
+                conn = Connection.GetInstance().CreateConnection();
+                SqlCommand cmd = new SqlCommand("insert_authorsxbooks", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(param);
+                conn.Open();
+
+                inserted = cmd.ExecuteNonQuery() == 1;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return inserted;
+
+        }
     }
 }

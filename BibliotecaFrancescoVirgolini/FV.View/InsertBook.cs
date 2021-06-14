@@ -67,7 +67,7 @@ namespace FV.View
         {
             int a = EditorialList.SelectedIndex;
             
-            string response = BBooks.insertbooks(booktitle.Text, Convert.ToInt32(Math.Round(bookquantity.Value, 0)), bookisbn.Text, Convert.ToInt32(Math.Round(boookedition.Value, 0)), Convert.ToInt32(Math.Round(numericUpDown1.Value, 0)), textBox1.Text, bookdesc.Text, EditorialList.SelectedIndex+1, countrieList.SelectedIndex+1, LanguageList.SelectedIndex+1, SubjectList.SelectedIndex+1);
+            string response = BBooks.insertbooks(booktitle.Text, Convert.ToInt32(Math.Round(bookquantity.Value, 0)), bookisbn.Text, Convert.ToInt32(Math.Round(boookedition.Value, 0)), Convert.ToInt32(Math.Round(numericUpDown1.Value, 0)), textBox1.Text, bookdesc.Text, EditorialList.SelectedIndex+1, countrieList.SelectedIndex+1, LanguageList.SelectedIndex+1, SubjectList.SelectedIndex+1, AuthorList.SelectedIndex+1);
             MessageBox.Show(response);
             Close();
 

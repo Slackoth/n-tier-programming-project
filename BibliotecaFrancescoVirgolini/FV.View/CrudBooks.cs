@@ -62,7 +62,7 @@ namespace FV.View
 
             if ( bookgv.SelectedRows[0].Cells[0].Value.ToString()!=null){
                 string response=BBooks.delete_books(int.Parse(bookgv.SelectedRows[0].Cells[0].Value.ToString()));
-                MessageBox.Show(response);
+                MessageBox.Show("elimnado correctamente");
             }
             else {
                 MessageBox.Show("seleccione una linea completa!!");

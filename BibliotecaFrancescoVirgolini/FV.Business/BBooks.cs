@@ -24,11 +24,30 @@ namespace FV.Business
             return dBooks.Search(value, type);
         }
 
-        public static string insertbooks(string title, int quant, string isbn, int edition, int pages, string ubication, string desc, int editorial, int country, int language, int subject) {
+        public static string insertbooks(string title, int quant, string isbn, int edition, int pages, string ubication, string desc, int editorial, int country, int language, int subject, int authorid) {
 
             DBooks db = new DBooks();
+            DAuthors da = new DAuthors();
+            DCopies dc = new DCopies();
+
+
 
             if (db.insertBook(title, quant, isbn, edition, pages, ubication, desc, editorial, country, language, subject)) {
+                DataTable data = new DataTable();
+                data= db.getid(title);
+                int id;
+
+                foreach (DataRow dr in data.Rows) {
+                   
+                    da.insert_authorsxbooks(int.Parse(dr["id"].ToString()), authorid);
+                    id = int.Parse(dr["id"].ToString());
+
+                    for (int i = 0; i < quant; i++)
+                    {
+                        dc.insertCopies(id);
+                    }
+
+                }
                 return "Agregado Exitosamente";
             }
             else {
