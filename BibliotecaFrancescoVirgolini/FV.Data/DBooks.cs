@@ -144,5 +144,36 @@ namespace FV.Data
             return inserted;
         
         }
+
+        public bool delete_book(int id) {
+
+            bool deleted = false;
+            SqlConnection conn = new SqlConnection();
+            SqlParameter[] param = {
+                new SqlParameter("@id_book", SqlDbType.Int) {
+                    Value = id
+                }
+            };
+
+            try
+            {
+                conn = Connection.GetInstance().CreateConnection();
+                SqlCommand cmd = new SqlCommand("delete_book", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(param);
+                conn.Open();
+
+                deleted = cmd.ExecuteNonQuery() == 1;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+            return deleted;
+        }
     }
+
 }

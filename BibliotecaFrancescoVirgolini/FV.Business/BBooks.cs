@@ -32,13 +32,20 @@ namespace FV.Business
                 return "Agregado Exitosamente";
             }
             else {
-                return "mamma mia";
+                return "mamma mia here we go again";
             }
 
+        }
 
-            
-        
-        
+        public static string delete_books(int id) {
+            DBooks db = new DBooks();
+            if (db.delete_book(id)) {
+                return "Elimnado Exitosamente"; 
+            }
+            else
+            {
+                return "Error Eliminandolo, intentelo de nuevo";
+            }
         }
     }
 }

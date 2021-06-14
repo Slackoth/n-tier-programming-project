@@ -49,6 +49,25 @@ namespace FV.View
             refreshdata();
         }
 
+        private void Update_Click(object sender, EventArgs e)
+        {
+            string row = bookgv.SelectedRows[0].Cells[0].Value.ToString();
+            
+        }
 
+
+        private void Delete_Click(object sender, EventArgs e)
+
+        {
+
+            if ( bookgv.SelectedRows[0].Cells[0].Value.ToString()!=null){
+                string response=BBooks.delete_books(int.Parse(bookgv.SelectedRows[0].Cells[0].Value.ToString()));
+                MessageBox.Show(response);
+            }
+            else {
+                MessageBox.Show("seleccione una linea completa!!");
+            }
+            refreshdata();
+        }
     }
 }
