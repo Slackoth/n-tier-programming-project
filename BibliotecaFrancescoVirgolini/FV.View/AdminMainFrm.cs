@@ -55,5 +55,12 @@ namespace FV.View
         {
 
         }
+
+        private void tsmReturns_Click(object sender, EventArgs e)
+        {
+            DevolutionForm form = new();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

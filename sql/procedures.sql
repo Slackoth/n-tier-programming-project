@@ -317,3 +317,27 @@ where books_id=@id
 
 
 
+create or alter procedure  list_loans
+as 
+select l.loan_id,l.loan_date,l.loan_devolution, copies_id,users_id  from  loans l
+where returned=0
+go
+
+exec list_loans
+
+select *from copies
+
+
+create or alter procedure devolution
+@loan_id int, @copies_id int
+as 
+update loans
+set returned=1
+where loan_id = @loan_id
+
+update copies
+set copie_state=0
+where copies_id=@copies_id
+go
+
+exec devolution @loan_id=1 , @copies_id=4

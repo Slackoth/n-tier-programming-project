@@ -29,19 +29,10 @@ namespace FV.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.Loangridview = new System.Windows.Forms.DataGridView();
             this.Devolution = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Loangridview)).BeginInit();
+            this.Devolutiongridview = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.Devolutiongridview)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Loangridview
-            // 
-            this.Loangridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Loangridview.Location = new System.Drawing.Point(12, 12);
-            this.Loangridview.Name = "Loangridview";
-            this.Loangridview.RowTemplate.Height = 25;
-            this.Loangridview.Size = new System.Drawing.Size(1198, 421);
-            this.Loangridview.TabIndex = 0;
             // 
             // Devolution
             // 
@@ -53,23 +44,31 @@ namespace FV.View
             this.Devolution.UseVisualStyleBackColor = true;
             this.Devolution.Click += new System.EventHandler(this.Devolution_Click);
             // 
+            // Devolutiongridview
+            // 
+            this.Devolutiongridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Devolutiongridview.Location = new System.Drawing.Point(12, 12);
+            this.Devolutiongridview.Name = "Devolutiongridview";
+            this.Devolutiongridview.RowTemplate.Height = 25;
+            this.Devolutiongridview.Size = new System.Drawing.Size(1198, 435);
+            this.Devolutiongridview.TabIndex = 2;
+            // 
             // DevolutionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 535);
+            this.Controls.Add(this.Devolutiongridview);
             this.Controls.Add(this.Devolution);
-            this.Controls.Add(this.Loangridview);
             this.Name = "DevolutionForm";
             this.Text = "Devoluciones";
-            ((System.ComponentModel.ISupportInitialize)(this.Loangridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Devolutiongridview)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView Loangridview;
         private System.Windows.Forms.Button Devolution;
+        private System.Windows.Forms.DataGridView Devolutiongridview;
     }
 }

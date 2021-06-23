@@ -85,15 +85,16 @@ namespace FV.View
             // tsmLoan
             // 
             this.tsmLoan.Name = "tsmLoan";
-            this.tsmLoan.Size = new System.Drawing.Size(145, 22);
+            this.tsmLoan.Size = new System.Drawing.Size(180, 22);
             this.tsmLoan.Text = "Préstamos";
             this.tsmLoan.Click += new System.EventHandler(this.tsmLoan_Click);
             // 
             // tsmReturns
             // 
             this.tsmReturns.Name = "tsmReturns";
-            this.tsmReturns.Size = new System.Drawing.Size(145, 22);
+            this.tsmReturns.Size = new System.Drawing.Size(180, 22);
             this.tsmReturns.Text = "Devoluciones";
+            this.tsmReturns.Click += new System.EventHandler(this.tsmReturns_Click);
             // 
             // tsmFrancesco
             // 

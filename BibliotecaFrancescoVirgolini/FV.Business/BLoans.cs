@@ -39,5 +39,27 @@ namespace FV.Business
             else
                 return "El préstamo no ha podido ser completado.";
         }
+
+        public static DataTable listall() {
+            DLoans dl = new DLoans();
+
+            return dl.Listwithoutfilters();
+
+        }
+
+        public static string Devolution(int id, int copies_id)
+        {
+            DLoans dLoan = new();
+            if (dLoan.update_devolution(id, copies_id)) {
+                return "se ha devuelto con exito";
+            }
+            else{
+
+                return"error";
+            }
+
+
+            
+        }
     }
 }

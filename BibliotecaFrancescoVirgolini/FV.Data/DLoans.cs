@@ -266,5 +266,73 @@ namespace FV.Data
 
             return copyId;
         }
+
+
+
+        public DataTable Listwithoutfilters()
+        {
+            SqlDataReader result;
+            DataTable table = new DataTable();
+            SqlConnection connection = new SqlConnection();
+
+            try
+            {
+                connection = Connection.GetInstance().CreateConnection();
+                SqlCommand command = new SqlCommand("list_loans", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                
+
+                connection.Open();
+
+                result = command.ExecuteReader();
+
+                table.Load(result);
+                return table;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+        }
+
+
+        public bool update_devolution(int loanid, int copieid) {
+
+            bool updated = false;
+
+            SqlConnection conn = new SqlConnection();
+            SqlParameter[] param = {
+                new SqlParameter("@loan_id",SqlDbType.Int){
+                    Value= loanid
+                },
+                new SqlParameter("@copies_id", SqlDbType.Int)
+                {
+                    Value = copieid
+                },
+
+            };
+
+            try
+            {
+                conn = Connection.GetInstance().CreateConnection();
+                SqlCommand cmd = new SqlCommand("devolution", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddRange(param);
+                conn.Open();
+
+                updated = cmd.ExecuteNonQuery() == 1;
+            }
+            catch (Exception) {
+                throw;
+            }
+            return updated;
+
+        }
+
     }
 }
