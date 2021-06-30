@@ -47,7 +47,7 @@ namespace FV.View
 
 
 
-                MessageBox.Show(loanid.ToString() + copies.ToString());
+                MessageBox.Show("se ha devuelto con exito");
                 refreshdata();
 
 

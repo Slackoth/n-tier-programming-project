@@ -286,10 +286,10 @@ insert into authors_books(books_id, authors_id) values(@bookid, @authorsid);
 create or alter procedure insert_copies
 @bookid int
 as 
-insert into copies(books_id,copie_state) values(@bookid, 0)
+insert into copies(books_id,copie_state) values(@bookid, 1)
 go
 
-
+select *from copies
 
 create or alter procedure searchbook_update
 @value varchar(150)
@@ -341,3 +341,5 @@ where copies_id=@copies_id
 go
 
 exec devolution @loan_id=1 , @copies_id=4
+
+select *from books
