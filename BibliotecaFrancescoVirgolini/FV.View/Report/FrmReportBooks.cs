@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FV.View
+namespace FV.View.Report
 {
-    public partial class ReportForm : Form
+    public partial class FrmReportBooks : Form
     {
-        public ReportForm()
+        public FrmReportBooks()
         {
             InitializeComponent();
+        }
+
+        private void FrmReportBooks_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
