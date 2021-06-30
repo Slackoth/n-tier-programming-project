@@ -71,6 +71,7 @@ namespace FV.View
             this.gbBooks.TabIndex = 0;
             this.gbBooks.TabStop = false;
             this.gbBooks.Text = "Búsqueda de libros";
+            this.gbBooks.Enter += new System.EventHandler(this.gbBooks_Enter);
             // 
             // btnBooks
             // 
@@ -99,7 +100,6 @@ namespace FV.View
             this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBooks.Size = new System.Drawing.Size(597, 236);
             this.dgvBooks.TabIndex = 4;
-           
             // 
             // txtBooks
             // 
@@ -292,7 +292,7 @@ namespace FV.View
             this.Name = "BookLoansFrm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Préstamo de Libros";
+            this.Text = "4";
             this.Load += new System.EventHandler(this.BookLoansFrm_Load);
             this.gbBooks.ResumeLayout(false);
             this.gbBooks.PerformLayout();

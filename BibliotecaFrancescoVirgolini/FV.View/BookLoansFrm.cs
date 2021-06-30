@@ -233,6 +233,9 @@ namespace FV.View
             MessageBox.Show(message, "Biblioteca Francesco Virgolini", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        
+        private void gbBooks_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

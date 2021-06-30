@@ -62,5 +62,10 @@ namespace FV.View
             form.MdiParent = this;
             form.Show();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

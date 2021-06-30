@@ -39,6 +39,7 @@ namespace FV.View
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ssDeveloper = new System.Windows.Forms.StatusStrip();
             this.tsslblDevelopers = new System.Windows.Forms.ToolStripStatusLabel();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msLibrary.SuspendLayout();
             this.ssDeveloper.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +70,7 @@ namespace FV.View
             // tsmManagement
             // 
             this.tsmManagement.Name = "tsmManagement";
-            this.tsmManagement.Size = new System.Drawing.Size(180, 22);
+            this.tsmManagement.Size = new System.Drawing.Size(156, 22);
             this.tsmManagement.Text = "Mantenimiento";
             this.tsmManagement.Click += new System.EventHandler(this.tsmManagement_Click);
             // 
@@ -85,19 +86,21 @@ namespace FV.View
             // tsmLoan
             // 
             this.tsmLoan.Name = "tsmLoan";
-            this.tsmLoan.Size = new System.Drawing.Size(180, 22);
+            this.tsmLoan.Size = new System.Drawing.Size(145, 22);
             this.tsmLoan.Text = "Préstamos";
             this.tsmLoan.Click += new System.EventHandler(this.tsmLoan_Click);
             // 
             // tsmReturns
             // 
             this.tsmReturns.Name = "tsmReturns";
-            this.tsmReturns.Size = new System.Drawing.Size(180, 22);
+            this.tsmReturns.Size = new System.Drawing.Size(145, 22);
             this.tsmReturns.Text = "Devoluciones";
             this.tsmReturns.Click += new System.EventHandler(this.tsmReturns_Click);
             // 
             // tsmFrancesco
             // 
+            this.tsmFrancesco.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportesToolStripMenuItem});
             this.tsmFrancesco.Name = "tsmFrancesco";
             this.tsmFrancesco.Size = new System.Drawing.Size(119, 20);
             this.tsmFrancesco.Text = "&Francesco Virgolini";
@@ -126,6 +129,13 @@ namespace FV.View
             this.tsslblDevelopers.Name = "tsslblDevelopers";
             this.tsslblDevelopers.Size = new System.Drawing.Size(260, 17);
             this.tsslblDevelopers.Text = "Desarrollado por Luis Calderón - Rene Meléndez";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // AdminMainFrm
             // 
@@ -165,5 +175,6 @@ namespace FV.View
         private System.Windows.Forms.StatusStrip ssDeveloper;
         private System.Windows.Forms.ToolStripStatusLabel tsslblDevelopers;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }
